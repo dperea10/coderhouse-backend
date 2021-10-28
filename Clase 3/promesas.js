@@ -1,3 +1,4 @@
+const XMLHttpRequest = require('xhr2');
 // Promesas
 // let miPromesa = new Promise((resolver, rechazar) => {
 //     let expresion = true;
@@ -40,8 +41,11 @@
 //         rechazar('Se produjo un error');    
 // });
 
-// //miPromesa.then( valor => console.log(valor), error => console.log(error));
-// //miPromesa.then(valor => console.log(valor)).catch(error=>console.log(error));
+// miPromesa.then(valor => console.log(valor), error => console.log(error));
+
+// miPromesa
+//   .then(  valor => console.log(valor))
+//   .catch( error =>console.log(error));
 
 // let promesa = new Promise((resolver) => {
 //     //console.log('inicio promesa');
@@ -69,5 +73,36 @@
 // })
 // .then( x => 30 )
 // .then( x => x / 2 )
-// .then( console.log )
-// .catch( console.log )
+// .then( console.log('N') )
+// .catch( console.log('Error') )
+
+// Ejemplo PROMESAS consultando una API
+
+const getPosts = () => {
+    return new Promise((resolve, reject)=> { //Se puede reducir usando una arrow function
+        let req = new XMLHttpRequest();
+        req.open('GET', 'https://jsonplaceholder.typicode.com/posts');
+
+        req.onload = () => {
+          if (req.status == 200) {
+            resolve(JSON.parse(req.response));
+          }
+          else {
+            reject('Error consultando la data');
+          }
+        };
+
+        req.send();
+    })
+}
+
+let promises =[ 
+    getPosts()
+  ];
+
+Promise.all(promises).then(results => {
+    console.log(results)
+})
+.catch(error => console.log(error))
+
+

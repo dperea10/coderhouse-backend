@@ -1,8 +1,8 @@
-function escribirYLoguear(texto, callbackParaLoguear) {
+function escribirYLoguear(texto, callbackFuncion) {
   // simulamos que escribimos en un archivo!
   console.log(texto)
   // al finalizar, ejecutamos el callback
-  callbackParaLoguear('archivo escrito con éxito')
+  callbackFuncion('archivo escrito con éxito')
 }
 
 escribirYLoguear('hola mundo de los callbacks!', (mensajeParaLoguear) => {

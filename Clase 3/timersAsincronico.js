@@ -1,16 +1,28 @@
-function hacerTarea(num, cb) {
-    console.log('haciendo tarea ' + num)
-    setTimeout(cb,100)
+// async function hacerTarea(num, cb) {
+//     console.log('haciendo tarea ' + num)
+//     await setTimeout(cb,100)
+// }
+
+// console.log('inicio de tareas');
+// hacerTarea(1, () => {
+//     hacerTarea(2, () => {
+//         hacerTarea(3, () => {
+//             hacerTarea(4, () => {
+//                 console.log('fin de tareas')
+//             })
+//         })
+//     })
+// })
+// console.log('otras tareas ...')
+
+
+
+const array = []
+
+if(array.length){
+    console.log(array.length)
+}else{
+    console.log('Array vacio')
 }
 
-console.log('inicio de tareas');
-hacerTarea(1, () => {
-    hacerTarea(2, () => {
-        hacerTarea(3, () => {
-            hacerTarea(4, () => {
-                console.log('fin de tareas')
-            })
-        })
-    })
-})
-console.log('otras tareas ...')
+
